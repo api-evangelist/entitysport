@@ -1,0 +1,191 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Entity Sport
+providerId: entitysport
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Sports Data
+- Cricket
+- Live Scores
+- Fantasy
+- Odds
+- Plans
+description: >-
+  Entity Sport sells the Cricket API V2 through tiered monthly/annual
+  subscriptions that scale tournament coverage and data depth, plus
+  commentary variants that add ball-by-ball commentary, and a custom
+  Enterprise tier. A free development/trial tier is also offered. Plan
+  inclusions and tournament coverage vary; exact feature-to-plan mappings
+  are not fully reconciled in this artifact.
+notes: >-
+  Representative pricing as published on entitysport.com; verify current
+  tier prices, tournament coverage, and feature inclusions on the pricing
+  and plan-coverage pages during reconciliation.
+sources:
+- https://www.entitysport.com/cricket-api/
+- https://www.entitysport.com/blog/cricket-api-plans-and-coverage-explained/
+- https://www.doc.entitysport.com/cricket-api-v2
+plans:
+- id: entitysport-free-trial
+  name: Free Development / Trial
+  type: free
+  description: >-
+    Free development API access and trials for evaluating the Cricket API
+    before subscribing.
+  entries:
+  - label: Development Access
+    name: free_trial
+    type: free
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  elements:
+  - name: Sandbox / Development Access
+- id: entitysport-starter
+  name: Starter
+  type: subscription
+  description: Entry tournament coverage and core cricket data endpoints.
+  entries:
+  - label: Starter Subscription
+    name: starter
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $150/month or $1,500/year
+    userMultiplied: false
+  elements:
+  - name: Schedule
+  - name: Livescore
+  - name: Match
+  - name: Competition
+- id: entitysport-pro
+  name: Pro
+  type: subscription
+  description: Expanded tournament coverage and data depth over Starter.
+  entries:
+  - label: Pro Subscription
+    name: pro
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $250/month or $2,500/year
+    userMultiplied: false
+  elements:
+  - name: Schedule
+  - name: Livescore
+  - name: Match
+  - name: Competition
+  - name: Fantasy Points
+- id: entitysport-elite
+  name: Elite
+  type: subscription
+  description: Broadest tournament coverage and full data depth.
+  entries:
+  - label: Elite Subscription
+    name: elite
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $450/month or $4,500/year
+    userMultiplied: false
+  elements:
+  - name: Schedule
+  - name: Livescore
+  - name: Match
+  - name: Competition
+  - name: Fantasy Points
+  - name: Player and Team Stats
+- id: entitysport-starter-commentary
+  name: Starter Commentary
+  type: subscription
+  description: Starter coverage with ball-by-ball commentary added.
+  entries:
+  - label: Starter Commentary Subscription
+    name: starter_commentary
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $250/month or $2,500/year
+    userMultiplied: false
+  elements:
+  - name: Starter Coverage
+  - name: Ball-by-Ball Commentary
+- id: entitysport-pro-commentary
+  name: Pro Commentary
+  type: subscription
+  description: Pro coverage with ball-by-ball commentary added.
+  entries:
+  - label: Pro Commentary Subscription
+    name: pro_commentary
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $500/month or $5,000/year
+    userMultiplied: false
+  elements:
+  - name: Pro Coverage
+  - name: Ball-by-Ball Commentary
+- id: entitysport-elite-commentary
+  name: Elite Commentary
+  type: subscription
+  description: Elite coverage with ball-by-ball commentary added.
+  entries:
+  - label: Elite Commentary Subscription
+    name: elite_commentary
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $750/month or $7,500/year
+    userMultiplied: false
+  elements:
+  - name: Elite Coverage
+  - name: Ball-by-Ball Commentary
+- id: entitysport-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom business solutions for large organizations with negotiated
+    coverage, data depth, support, and terms. Contact Entity Sport sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Tournament Coverage
+  - name: Cricket Exchange / Odds
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

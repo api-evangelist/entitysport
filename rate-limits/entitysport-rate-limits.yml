@@ -1,0 +1,64 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Entity Sport
+providerId: entitysport
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Sports Data
+- Cricket
+- Live Scores
+- Fantasy
+- Odds
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Entity Sport authenticates every Cricket API V2 request with a short-lived
+  access token obtained from /auth, and access is gated by subscription plan
+  and tournament coverage rather than published per-endpoint rate limits.
+  Specific request-per-minute, daily-call, or concurrency limits are not
+  documented publicly and are not reconciled in this artifact.
+notes: >-
+  Token expiry (token_expires) requires periodic re-authentication. Verify any
+  per-plan call quotas, polling-frequency guidance for live endpoints, and
+  throttling thresholds with Entity Sport sales/support during reconciliation.
+sources:
+- https://www.doc.entitysport.com/cricket-api-v2
+- https://www.entitysport.com/cricket-api/
+- https://github.com/entitysport/cricket-entity-sport-node
+responseCodes:
+  throttled: 429
+limits:
+- name: Plan Tournament Coverage
+  scope: account
+  metric: tournaments
+  limit: see plan
+  notes: Accessible competitions and depth depend on the subscribed plan tier.
+- name: Access Token Lifetime
+  scope: account
+  metric: token
+  limit: short-lived
+  notes: Tokens expire (token_expires); clients must re-authenticate via POST /auth.
+- name: Daily / Per-Minute Call Limits
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Per-plan call quotas are not documented publicly; confirm with sales.
+- name: Live Endpoint Polling
+  scope: account
+  metric: requests
+  limit: see provider documentation
+  notes: Recommended polling frequency for live/ball-by-ball endpoints is not published.
+policies:
+- name: Token Authentication
+  description: Obtain a short-lived token from POST /auth and pass it as the token query parameter on all requests.
+- name: Tiered Access
+  description: Coverage and data depth scale with the subscribed plan; higher tiers unlock more tournaments and features.
+- name: Backoff Strategy
+  description: Clients should implement retry with backoff and re-authenticate when the access token expires.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

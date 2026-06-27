@@ -1,0 +1,95 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Entity Sport
+providerId: entitysport
+created: '2026-06-25'
+modified: '2026-06-25'
+reconciled: false
+tags:
+- Sports Data
+- Cricket
+- Live Scores
+- Fantasy
+- Odds
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Entity Sport Cricket API spend. Entity Sport bills via fixed
+  monthly or annual subscription tiers (Starter, Pro, Elite, and their
+  Commentary variants) plus a custom Enterprise tier, with tournament coverage
+  and data depth scaling by plan. Cost is driven by tier selection rather than
+  per-call metering; exact tier-to-coverage mappings are not fully reconciled.
+notes: >-
+  Subscription prices and coverage are subject to change; verify against the
+  Entity Sport pricing and plan-coverage pages during reconciliation.
+sources:
+- https://www.entitysport.com/cricket-api/
+- https://www.entitysport.com/blog/cricket-api-plans-and-coverage-explained/
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Entity Sport
+serviceCategory: Sports Data and Analytics
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly or Annual
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+  - Adjustment
+focusColumns:
+  ServiceName: Entity Sport Cricket API
+  ServiceCategory: Sports Data and Analytics
+  ProviderName: Entity Sport
+  PublisherName: Entity Sport
+  InvoiceIssuerName: Entity Digital Sports
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Subscription-Based
+meters:
+- name: subscription_tier
+  description: Fixed monthly/annual subscription fee for the selected Cricket API plan tier.
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: commentary_addon
+  description: Incremental fee for Commentary plan variants adding ball-by-ball commentary.
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: tournament_coverage
+  description: Tournaments and competitions accessible under the subscribed plan.
+  unit: tournaments
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+- name: enterprise_contract
+  description: Negotiated Enterprise agreement for custom coverage, odds, and support.
+  unit: contract
+  aggregation: max
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track the active subscription tier and renewal term; map which tournaments and data types each plan unlocks.
+- name: Allocation
+  description: Attribute the subscription cost to the products/teams consuming cricket data; tag API credentials per workload.
+- name: Optimization
+  description: Right-size the tier to the tournaments and data depth actually needed; avoid Commentary variants unless ball-by-ball commentary is required.
+- name: Accountability
+  description: Review coverage vs. spend before each renewal; negotiate Enterprise terms when coverage or odds needs exceed standard tiers.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

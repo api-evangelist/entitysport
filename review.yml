@@ -1,0 +1,80 @@
+aid: entitysport
+name: Entity Sport
+review:
+  question: Does Entity Sport expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-25'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Per current API Evangelist scope, HTTP Server-Sent Events (SSE) is
+    in-scope for AsyncAPI modeling and WebSocket is the primary streaming
+    surface of interest. Entity Sport documents neither a WebSocket nor an
+    SSE endpoint for cricket data. Its "push" product delivers updates via
+    HTTP POST webhooks to a customer-hosted endpoint, which is request/
+    response over HTTPS, not a WebSocket or SSE stream. No AsyncAPI document
+    was created because no WebSocket or SSE surface is documented.
+findings:
+  summary: |
+    Entity Sport does not publish a documented public WebSocket API. The
+    Cricket API V2 is a token-authenticated REST (HTTPS) interface under
+    https://restapi.entitysport.com/v2. Real-time updates are obtained
+    either by polling the REST live endpoints or via the optional Cricket
+    Push API, which pushes JSON to a customer-hosted HTTP endpoint using
+    standard POST webhooks. No realtime, bidirectional WebSocket (ws:// or
+    wss://) endpoint and no Server-Sent Events (SSE) stream are documented
+    for live scoring, scorecards, fantasy points, or odds.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://restapi.entitysport.com/v2
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: Optional Cricket Push API delivers JSON to a customer-hosted endpoint via HTTP POST. Request/response, not WebSocket or SSE.
+      documented: true
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events stream is documented for any cricket endpoint.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Entity Sport's Cricket API V2, Cricket Exchange, or push documentation as of the review date.
+  endpointsConfirmedRest:
+    - POST https://restapi.entitysport.com/v2/auth
+    - GET  https://restapi.entitysport.com/v2/seasons
+    - GET  https://restapi.entitysport.com/v2/competitions
+    - GET  https://restapi.entitysport.com/v2/competitions/{cid}
+    - GET  https://restapi.entitysport.com/v2/competitions/{cid}/matches
+    - GET  https://restapi.entitysport.com/v2/competitions/{cid}/standings
+    - GET  https://restapi.entitysport.com/v2/matches
+    - GET  https://restapi.entitysport.com/v2/matches/{mid}/info
+    - GET  https://restapi.entitysport.com/v2/matches/{mid}/live
+    - GET  https://restapi.entitysport.com/v2/matches/{mid}/scorecard
+    - GET  https://restapi.entitysport.com/v2/matches/{mid}/squads
+    - GET  https://restapi.entitysport.com/v2/matches/{mid}/point
+    - GET  https://restapi.entitysport.com/v2/matches/{mid}/odds
+    - GET  https://restapi.entitysport.com/v2/players/{pid}
+    - GET  https://restapi.entitysport.com/v2/teams/{tid}
+sources:
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: Documentation
+    note: Cricket API V2 overview; base URL https://restapi.entitysport.com/v2 with token query-parameter auth; all REST. No WebSocket mentioned.
+  - url: https://www.doc.entitysport.com/cricket-exchange
+    type: Documentation
+    note: Cricket Exchange odds product documented over the same REST API; no WebSocket surface.
+  - url: https://github.com/entitysport/cricket-push-api-python
+    type: SDK
+    note: Push API sample receives JSON via HTTP POST webhook to a customer-hosted Flask endpoint; not WebSocket or SSE.
+  - url: https://www.entitysport.com/cricket-api/
+    type: Documentation
+    note: Product overview of cricket endpoints (Schedule, Livescore, Match, Competition, Fantasy Points). REST only.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: false
+  reason: |
+    No WebSocket or SSE protocol surface exists. Real-time delivery is via
+    REST polling or HTTP POST webhooks (Cricket Push API), neither of which
+    is modeled in AsyncAPI. No AsyncAPI document was authored and apis.yml
+    was not changed.

@@ -1,0 +1,138 @@
+aid: entitysport
+url: https://raw.githubusercontent.com/api-evangelist/entitysport/refs/heads/main/apis.yml
+name: Entity Sport
+kind: company
+description: Entity Sport (Entity Digital Sports) provides real-time sports data
+  APIs, with cricket as its flagship product. The Cricket API V2 delivers
+  competitions and seasons, fixtures and results, ball-by-ball live scoring,
+  detailed scorecards, fantasy points, player and team profiles, standings, and
+  betting odds over a token-authenticated REST interface.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Sports Data
+- Cricket
+- Live Scores
+- Fantasy
+- Odds
+created: '2026-06-25'
+modified: '2026-06-25'
+specificationVersion: '0.19'
+apis:
+- aid: entitysport:competitions
+  name: Entity Sport Competitions API
+  tags:
+  - Competitions
+  - Seasons
+  - Standings
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.doc.entitysport.com/cricket-api-v2
+  baseURL: https://restapi.entitysport.com/v2
+  properties:
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: Documentation
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: APIReference
+  - url: openapi/entitysport-openapi.yml
+    type: OpenAPI
+  description: Lists cricket competitions (tournaments, tours, cups) and seasons,
+    and exposes per-competition matches and standings/points tables, keyed by the
+    competition identifier cid and season identifier sid.
+- aid: entitysport:matches-live-scoring
+  name: Entity Sport Matches & Live Scoring API
+  tags:
+  - Matches
+  - Live Scoring
+  - Ball by Ball
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.doc.entitysport.com/cricket-api-v2
+  baseURL: https://restapi.entitysport.com/v2
+  properties:
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: Documentation
+  - url: openapi/entitysport-openapi.yml
+    type: OpenAPI
+  description: Lists fixtures, live, and completed matches and returns per-match
+    info plus ball-by-ball live scoring keyed by the match identifier mid.
+- aid: entitysport:scorecards
+  name: Entity Sport Scorecards API
+  tags:
+  - Scorecards
+  - Innings
+  - Statistics
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.doc.entitysport.com/cricket-api-v2
+  baseURL: https://restapi.entitysport.com/v2
+  properties:
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: Documentation
+  - url: openapi/entitysport-openapi.yml
+    type: OpenAPI
+  description: Returns the full match scorecard with batting, bowling, and innings
+    detail for a given match identifier mid.
+- aid: entitysport:fantasy-points
+  name: Entity Sport Fantasy Points API
+  tags:
+  - Fantasy
+  - Points
+  - Roster
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.doc.entitysport.com/cricket-api-v2
+  baseURL: https://restapi.entitysport.com/v2
+  properties:
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: Documentation
+  - url: openapi/entitysport-openapi.yml
+    type: OpenAPI
+  description: Serves Entity Sport fantasy cricket points for a match plus the
+    pre-match fantasy squad/roster with player roles and fantasy credits, keyed by
+    the match identifier mid.
+- aid: entitysport:players-teams
+  name: Entity Sport Players & Teams API
+  tags:
+  - Players
+  - Teams
+  - Profiles
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.doc.entitysport.com/cricket-api-v2
+  baseURL: https://restapi.entitysport.com/v2
+  properties:
+  - url: https://www.doc.entitysport.com/cricket-api-v2
+    type: Documentation
+  - url: openapi/entitysport-openapi.yml
+    type: OpenAPI
+  description: Returns player profiles and career statistics keyed by player
+    identifier pid, and team profiles and rosters keyed by team identifier tid.
+- aid: entitysport:odds
+  name: Entity Sport Odds API
+  tags:
+  - Odds
+  - Cricket Exchange
+  - Betting
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.doc.entitysport.com/cricket-exchange
+  baseURL: https://restapi.entitysport.com/v2
+  properties:
+  - url: https://www.doc.entitysport.com/cricket-exchange
+    type: Documentation
+  - url: openapi/entitysport-openapi.yml
+    type: OpenAPI
+  description: Exposes live cricket betting odds and exchange data per match via the
+    Cricket Exchange product, keyed by the match identifier mid.
+common:
+- type: GitHubOrganization
+  url: https://github.com/entitysport
+- type: LinkedIn
+  url: https://www.linkedin.com/company/entitysport
+- type: Website
+  url: https://www.entitysport.com
+- type: Documentation
+  url: https://www.doc.entitysport.com
+- type: Plans
+  url: plans/entitysport-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/entitysport-rate-limits.yml
+- type: FinOps
+  url: finops/entitysport-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

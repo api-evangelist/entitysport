@@ -1,0 +1,250 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Entity Sport Cricket API V2",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "in": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate an access token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.entitysport.com/v2/auth",
+            "body": {
+              "type": "urlencoded",
+              "data": "access_key={{access_key}}&secret_key={{secret_key}}"
+            }
+          },
+          "docs": "Exchanges access_key and secret_key for a short-lived access token."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Competitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List seasons.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/seasons?token={{token}}"
+          },
+          "docs": "Returns available seasons identified by sid."
+        },
+        {
+          "info": {
+            "name": "List competitions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions?token={{token}}"
+          },
+          "docs": "Returns cricket competitions identified by cid."
+        },
+        {
+          "info": {
+            "name": "Get a competition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions/{{cid}}?token={{token}}"
+          },
+          "docs": "Returns details for a single competition by cid."
+        },
+        {
+          "info": {
+            "name": "List matches for a competition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions/{{cid}}/matches?token={{token}}"
+          },
+          "docs": "Returns matches within the competition."
+        },
+        {
+          "info": {
+            "name": "Get standings for a competition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions/{{cid}}/standings?token={{token}}"
+          },
+          "docs": "Returns the points table / standings for a competition by cid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Matches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List matches.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches?token={{token}}"
+          },
+          "docs": "Returns fixtures, live, and completed matches identified by mid."
+        },
+        {
+          "info": {
+            "name": "Get match info.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/{{mid}}/info?token={{token}}"
+          },
+          "docs": "Returns metadata and current state for a single match by mid."
+        },
+        {
+          "info": {
+            "name": "Get live ball-by-ball scoring.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/{{mid}}/live?token={{token}}"
+          },
+          "docs": "Returns real-time ball-by-ball live scoring for a match by mid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scorecards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get match scorecard.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/{{mid}}/scorecard?token={{token}}"
+          },
+          "docs": "Returns full batting, bowling, and innings detail for a match by mid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fantasy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get match squad / fantasy roster.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/{{mid}}/squads?token={{token}}"
+          },
+          "docs": "Returns the pre-match fantasy squad/roster with player roles and fantasy credits."
+        },
+        {
+          "info": {
+            "name": "Get match fantasy points.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/{{mid}}/point?token={{token}}"
+          },
+          "docs": "Returns Entity Sport fantasy cricket points for a match by mid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Players",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a player profile.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/players/{{pid}}?token={{token}}"
+          },
+          "docs": "Returns the profile and career statistics for a player by pid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Teams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a team profile.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/teams/{{tid}}?token={{token}}"
+          },
+          "docs": "Returns the profile and roster for a team by tid."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get match odds.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/{{mid}}/odds?token={{token}}"
+          },
+          "docs": "Returns live betting odds and Cricket Exchange data for a match by mid."
+        }
+      ]
+    }
+  ]
+}

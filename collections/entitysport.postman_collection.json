@@ -1,0 +1,293 @@
+{
+  "info": {
+    "name": "Entity Sport Cricket API V2",
+    "description": {
+      "content": "Token-authenticated REST API for cricket data from Entity Sport. Obtain a short-lived token from POST /auth, then pass it as the `token` query parameter on every request.",
+      "type": "text/plain"
+    },
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://restapi.entitysport.com/v2"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "access_key",
+      "value": ""
+    },
+    {
+      "key": "secret_key",
+      "value": ""
+    },
+    {
+      "key": "cid",
+      "value": ""
+    },
+    {
+      "key": "mid",
+      "value": ""
+    },
+    {
+      "key": "pid",
+      "value": ""
+    },
+    {
+      "key": "tid",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Generate an access token.",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/auth",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "access_key", "value": "{{access_key}}" },
+                { "key": "secret_key", "value": "{{secret_key}}" }
+              ]
+            },
+            "description": "Exchanges access_key and secret_key for a short-lived access token."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Competitions",
+      "item": [
+        {
+          "name": "List seasons.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/seasons?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["seasons"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns available seasons identified by sid."
+          }
+        },
+        {
+          "name": "List competitions.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/competitions?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["competitions"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns cricket competitions identified by cid."
+          }
+        },
+        {
+          "name": "Get a competition.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/competitions/{{cid}}?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["competitions", "{{cid}}"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns details for a single competition by cid."
+          }
+        },
+        {
+          "name": "List matches for a competition.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/competitions/{{cid}}/matches?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["competitions", "{{cid}}", "matches"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns matches within the competition."
+          }
+        },
+        {
+          "name": "Get standings for a competition.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/competitions/{{cid}}/standings?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["competitions", "{{cid}}", "standings"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns the points table / standings for a competition by cid."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Matches",
+      "item": [
+        {
+          "name": "List matches.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns fixtures, live, and completed matches identified by mid."
+          }
+        },
+        {
+          "name": "Get match info.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches/{{mid}}/info?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches", "{{mid}}", "info"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns metadata and current state for a single match by mid."
+          }
+        },
+        {
+          "name": "Get live ball-by-ball scoring.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches/{{mid}}/live?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches", "{{mid}}", "live"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns real-time ball-by-ball live scoring for a match by mid."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Scorecards",
+      "item": [
+        {
+          "name": "Get match scorecard.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches/{{mid}}/scorecard?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches", "{{mid}}", "scorecard"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns full batting, bowling, and innings detail for a match by mid."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fantasy",
+      "item": [
+        {
+          "name": "Get match squad / fantasy roster.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches/{{mid}}/squads?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches", "{{mid}}", "squads"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns the pre-match fantasy squad/roster with player roles and fantasy credits."
+          }
+        },
+        {
+          "name": "Get match fantasy points.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches/{{mid}}/point?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches", "{{mid}}", "point"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns Entity Sport fantasy cricket points for a match by mid."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Players",
+      "item": [
+        {
+          "name": "Get a player profile.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/players/{{pid}}?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["players", "{{pid}}"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns the profile and career statistics for a player by pid."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Teams",
+      "item": [
+        {
+          "name": "Get a team profile.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/teams/{{tid}}?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["teams", "{{tid}}"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns the profile and roster for a team by tid."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Odds",
+      "item": [
+        {
+          "name": "Get match odds.",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/matches/{{mid}}/odds?token={{token}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["matches", "{{mid}}", "odds"],
+              "query": [{ "key": "token", "value": "{{token}}" }]
+            },
+            "description": "Returns live betting odds and Cricket Exchange data for a match by mid."
+          }
+        }
+      ]
+    }
+  ]
+}
