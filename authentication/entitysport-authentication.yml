@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/entitysport-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: accessToken
+  type: apiKey
+  in: query
+  parameter: token
+  description: Short-lived access token obtained from POST /auth, passed as the `token` query
+    parameter on every request.
+  sources:
+  - openapi/entitysport-openapi.yml

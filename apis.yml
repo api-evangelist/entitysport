@@ -119,6 +119,10 @@ apis:
   description: Exposes live cricket betting odds and exchange data per match via the
     Cricket Exchange product, keyed by the match identifier mid.
 common:
+- type: DomainSecurity
+  url: security/entitysport-domain-security.yml
+- type: Authentication
+  url: authentication/entitysport-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/entitysport
 - type: LinkedIn
@@ -133,6 +137,8 @@ common:
   url: rate-limits/entitysport-rate-limits.yml
 - type: FinOps
   url: finops/entitysport-finops.yml
+- url: https://www.entitysport.com/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
