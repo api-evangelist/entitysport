@@ -119,6 +119,8 @@ apis:
   description: Exposes live cricket betting odds and exchange data per match via the
     Cricket Exchange product, keyed by the match identifier mid.
 common:
+- type: AgenticAccess
+  url: agentic-access/entitysport-agentic-access.yml
 - type: DomainSecurity
   url: security/entitysport-domain-security.yml
 - type: Authentication
