@@ -1,0 +1,71 @@
+openapi: 3.0.1
+info:
+  title: Entity Sport Cricket API V2 Authentication Teams API
+  description: Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.
+  termsOfService: https://www.entitysport.com/terms-conditions/
+  contact:
+    name: Entity Sport Support
+    email: sales@entitysport.com
+    url: https://www.doc.entitysport.com/cricket-api-v2
+  version: '2.0'
+servers:
+- url: https://restapi.entitysport.com/v2
+  description: Entity Sport Cricket API V2 production server
+security:
+- accessToken: []
+tags:
+- name: Teams
+  description: Team profiles and rosters.
+paths:
+  /teams/{tid}:
+    get:
+      operationId: getTeam
+      tags:
+      - Teams
+      summary: Get a team profile.
+      description: Returns the profile and roster for a team by tid.
+      parameters:
+      - $ref: '#/components/parameters/tid'
+      - $ref: '#/components/parameters/token'
+      responses:
+        '200':
+          description: Team profile.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+components:
+  parameters:
+    token:
+      name: token
+      in: query
+      required: true
+      description: Short-lived access token from POST /auth.
+      schema:
+        type: string
+    tid:
+      name: tid
+      in: path
+      required: true
+      description: Team identifier.
+      schema:
+        type: integer
+  schemas:
+    ApiResponse:
+      type: object
+      description: Standard Entity Sport response envelope.
+      properties:
+        status:
+          type: string
+          description: Response status (e.g. ok).
+          example: ok
+        response:
+          type: object
+          description: Endpoint-specific payload.
+      additionalProperties: true
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Short-lived access token obtained from POST /auth, passed as the `token` query parameter on every request.

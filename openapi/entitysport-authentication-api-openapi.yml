@@ -1,0 +1,77 @@
+openapi: 3.0.1
+info:
+  title: Entity Sport Cricket API V2 Authentication API
+  description: Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.
+  termsOfService: https://www.entitysport.com/terms-conditions/
+  contact:
+    name: Entity Sport Support
+    email: sales@entitysport.com
+    url: https://www.doc.entitysport.com/cricket-api-v2
+  version: '2.0'
+servers:
+- url: https://restapi.entitysport.com/v2
+  description: Entity Sport Cricket API V2 production server
+security:
+- accessToken: []
+tags:
+- name: Authentication
+  description: Access token generation.
+paths:
+  /auth:
+    post:
+      operationId: createAccessToken
+      tags:
+      - Authentication
+      summary: Generate an access token.
+      description: Exchanges an access_key and secret_key for a short-lived access token used to authenticate all subsequent requests via the `token` query parameter.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        '200':
+          description: Access token issued.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Invalid credentials.
+components:
+  schemas:
+    AuthRequest:
+      type: object
+      required:
+      - access_key
+      - secret_key
+      properties:
+        access_key:
+          type: string
+          description: Account access key.
+        secret_key:
+          type: string
+          description: Account secret key.
+    AuthResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: ok
+        response:
+          type: object
+          properties:
+            token:
+              type: string
+              description: Short-lived access token.
+            expires:
+              type: integer
+              description: Token expiry as a Unix timestamp.
+  securitySchemes:
+    accessToken:
+      type: apiKey
+      in: query
+      name: token
+      description: Short-lived access token obtained from POST /auth, passed as the `token` query parameter on every request.
