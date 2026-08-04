@@ -1,0 +1,28 @@
+{
+  "provider": "entitysport",
+  "sources": [
+    "entitysport-authentication-api-openapi.yml",
+    "entitysport-competitions-api-openapi.yml",
+    "entitysport-fantasy-api-openapi.yml",
+    "entitysport-matches-api-openapi.yml",
+    "entitysport-odds-api-openapi.yml",
+    "entitysport-players-api-openapi.yml",
+    "entitysport-scorecards-api-openapi.yml",
+    "entitysport-teams-api-openapi.yml"
+  ],
+  "outputs": [
+    "entitysport-authentication-api-openapi.yml",
+    "entitysport-competitions-api-openapi.yml",
+    "entitysport-fantasy-api-openapi.yml",
+    "entitysport-matches-api-openapi.yml",
+    "entitysport-odds-api-openapi.yml",
+    "entitysport-players-api-openapi.yml",
+    "entitysport-scorecards-api-openapi.yml",
+    "entitysport-teams-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
