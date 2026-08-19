@@ -1,0 +1,261 @@
+{
+  "item": [
+    {
+      "id": "62d697b2-9a1d-45bb-b660-c88d3ac35978",
+      "name": "Fantasy",
+      "description": {
+        "content": "Fantasy points and squads.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d1f8745-081d-43b4-9505-cdf587fdf720",
+          "name": "Get match squad / fantasy roster.",
+          "request": {
+            "name": "Get match squad / fantasy roster.",
+            "description": {
+              "content": "Returns the pre-match fantasy squad/roster with player roles and fantasy credits for a match by mid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matches",
+                ":mid",
+                "squads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Short-lived access token from POST /auth."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "mid",
+                  "description": "(Required) Match identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18e5d1a2-8fb2-478f-a5c7-4d372aba1aa3",
+              "name": "Match squads.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matches",
+                    ":mid",
+                    "squads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "mid",
+                      "description": "(Required) Match identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"response\": {},\n  \"key_0\": 4818\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d497882-5aa4-46b5-a6c5-3c881737203d",
+          "name": "Get match fantasy points.",
+          "request": {
+            "name": "Get match fantasy points.",
+            "description": {
+              "content": "Returns Entity Sport fantasy cricket points for a match by mid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matches",
+                ":mid",
+                "point"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Short-lived access token from POST /auth."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "mid",
+                  "description": "(Required) Match identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ede51c0a-945e-4c8c-a889-f32752b5f4d5",
+              "name": "Fantasy points.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matches",
+                    ":mid",
+                    "point"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "mid",
+                      "description": "(Required) Match identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"response\": {},\n  \"key_0\": 4818\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://restapi.entitysport.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0296ee95-f3c2-4a8c-b9ad-8b5b21df5532",
+    "name": "Entity Sport Cricket API V2 Authentication Fantasy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.\n\nContact Support:\n Name: Entity Sport Support\n Email: sales@entitysport.com",
+      "type": "text/plain"
+    }
+  }
+}

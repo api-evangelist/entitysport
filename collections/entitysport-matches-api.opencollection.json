@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Entity Sport Cricket API V2 Authentication Matches API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Matches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List matches.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by match status (e.g. 1 fixture, 2 completed, 3 live)."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              },
+              {
+                "name": "paged",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results."
+              }
+            ]
+          },
+          "docs": "Returns fixtures, live, and completed matches identified by mid."
+        },
+        {
+          "info": {
+            "name": "Get match info.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/:mid/info",
+            "params": [
+              {
+                "name": "mid",
+                "value": "",
+                "type": "path",
+                "description": "Match identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns metadata and current state for a single match by mid."
+        },
+        {
+          "info": {
+            "name": "Get live ball-by-ball scoring.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/:mid/live",
+            "params": [
+              {
+                "name": "mid",
+                "value": "",
+                "type": "path",
+                "description": "Match identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns real-time ball-by-ball live scoring for a match by mid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

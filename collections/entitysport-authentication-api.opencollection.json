@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Entity Sport Cricket API V2 Authentication API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate an access token.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://restapi.entitysport.com/v2/auth",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Exchanges an access_key and secret_key for a short-lived access token used to authenticate all subsequent requests via the `token` query parameter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,169 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Entity Sport Cricket API V2 Authentication Competitions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Competitions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List seasons.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/seasons",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              },
+              {
+                "name": "paged",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results."
+              }
+            ]
+          },
+          "docs": "Returns available seasons identified by sid."
+        },
+        {
+          "info": {
+            "name": "List competitions.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by competition status (e.g. live, fixture, result)."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page."
+              },
+              {
+                "name": "paged",
+                "value": "",
+                "type": "query",
+                "description": "Page number for paginated results."
+              }
+            ]
+          },
+          "docs": "Returns cricket competitions (tournaments, tours, cups) identified by cid."
+        },
+        {
+          "info": {
+            "name": "Get a competition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions/:cid",
+            "params": [
+              {
+                "name": "cid",
+                "value": "",
+                "type": "path",
+                "description": "Competition identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns details for a single competition by cid."
+        },
+        {
+          "info": {
+            "name": "List matches for a competition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions/:cid/matches",
+            "params": [
+              {
+                "name": "cid",
+                "value": "",
+                "type": "path",
+                "description": "Competition identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "List matches for a competition."
+        },
+        {
+          "info": {
+            "name": "Get standings for a competition.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/competitions/:cid/standings",
+            "params": [
+              {
+                "name": "cid",
+                "value": "",
+                "type": "path",
+                "description": "Competition identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns the points table / standings for a competition by cid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

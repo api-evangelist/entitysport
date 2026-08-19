@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Entity Sport Cricket API V2 Authentication Fantasy API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fantasy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get match squad / fantasy roster.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/:mid/squads",
+            "params": [
+              {
+                "name": "mid",
+                "value": "",
+                "type": "path",
+                "description": "Match identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns the pre-match fantasy squad/roster with player roles and fantasy credits for a match by mid."
+        },
+        {
+          "info": {
+            "name": "Get match fantasy points.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/matches/:mid/point",
+            "params": [
+              {
+                "name": "mid",
+                "value": "",
+                "type": "path",
+                "description": "Match identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns Entity Sport fantasy cricket points for a match by mid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

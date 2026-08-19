@@ -1,0 +1,155 @@
+{
+  "item": [
+    {
+      "id": "066b519b-ebee-47b2-9acf-edb17cee9d4e",
+      "name": "Scorecards",
+      "description": {
+        "content": "Match scorecards and innings detail.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7709d77f-b1e2-4e6a-a362-ffc2ba39e727",
+          "name": "Get match scorecard.",
+          "request": {
+            "name": "Get match scorecard.",
+            "description": {
+              "content": "Returns full batting, bowling, and innings detail for a match by mid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "matches",
+                ":mid",
+                "scorecard"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "(Required) Short-lived access token from POST /auth."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "mid",
+                  "description": "(Required) Match identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e794c83e-9459-47e8-a414-cde36fba07be",
+              "name": "Match scorecard.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "matches",
+                    ":mid",
+                    "scorecard"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "mid",
+                      "description": "(Required) Match identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"response\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://restapi.entitysport.com/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e1b06eee-6b8f-47ea-9289-e73f2b44db68",
+    "name": "Entity Sport Cricket API V2 Authentication Scorecards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.\n\nContact Support:\n Name: Entity Sport Support\n Email: sales@entitysport.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Entity Sport Cricket API V2 Authentication Players API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Players",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a player profile.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://restapi.entitysport.com/v2/players/:pid",
+            "params": [
+              {
+                "name": "pid",
+                "value": "",
+                "type": "path",
+                "description": "Player identifier."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Short-lived access token from POST /auth."
+              }
+            ]
+          },
+          "docs": "Returns the profile and career statistics for a player by pid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
