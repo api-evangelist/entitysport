@@ -130,6 +130,8 @@ apis:
   humanURL: https://www.doc.entitysport.com/cricket-api-v2
   baseURL: https://restapi.entitysport.com/v2
   tags:
+  - Player
+  tags_raw:
   - Players
   properties:
   - type: OpenAPI
