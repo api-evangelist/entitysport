@@ -1,14 +1,7 @@
 {
   "provider": "entitysport",
   "sources": [
-    "entitysport-authentication-api-openapi.yml",
-    "entitysport-competitions-api-openapi.yml",
-    "entitysport-fantasy-api-openapi.yml",
-    "entitysport-matches-api-openapi.yml",
-    "entitysport-odds-api-openapi.yml",
-    "entitysport-players-api-openapi.yml",
-    "entitysport-scorecards-api-openapi.yml",
-    "entitysport-teams-api-openapi.yml"
+    "_original/entitysport-openapi.yml"
   ],
   "outputs": [
     "entitysport-authentication-api-openapi.yml",
@@ -23,6 +16,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "entitysport-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "entitysport-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-competitions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-fantasy-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-matches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-odds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-players-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-scorecards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "entitysport-teams-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

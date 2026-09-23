@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Entity Sport Cricket API V2 Authentication Fantasy API
+  title: Entity Sport Cricket API V2 Fantasy API
   description: Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.
   termsOfService: https://www.entitysport.com/terms-conditions/
   contact:
@@ -22,7 +22,7 @@ paths:
       operationId: getMatchSquads
       tags:
       - Fantasy
-      summary: Get match squad / fantasy roster.
+      summary: Get match squad / fantasy roster
       description: Returns the pre-match fantasy squad/roster with player roles and fantasy credits for a match by mid.
       parameters:
       - $ref: '#/components/parameters/mid'
@@ -39,7 +39,7 @@ paths:
       operationId: getMatchFantasyPoints
       tags:
       - Fantasy
-      summary: Get match fantasy points.
+      summary: Get match fantasy points
       description: Returns Entity Sport fantasy cricket points for a match by mid.
       parameters:
       - $ref: '#/components/parameters/mid'
@@ -52,21 +52,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
 components:
-  parameters:
-    token:
-      name: token
-      in: query
-      required: true
-      description: Short-lived access token from POST /auth.
-      schema:
-        type: string
-    mid:
-      name: mid
-      in: path
-      required: true
-      description: Match identifier.
-      schema:
-        type: integer
   schemas:
     ApiResponse:
       type: object
@@ -80,6 +65,21 @@ components:
           type: object
           description: Endpoint-specific payload.
       additionalProperties: true
+  parameters:
+    mid:
+      name: mid
+      in: path
+      required: true
+      description: Match identifier.
+      schema:
+        type: integer
+    token:
+      name: token
+      in: query
+      required: true
+      description: Short-lived access token from POST /auth.
+      schema:
+        type: string
   securitySchemes:
     accessToken:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Entity Sport Cricket API V2 Authentication Competitions API
+  title: Entity Sport Cricket API V2 Competitions API
   description: Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.
   termsOfService: https://www.entitysport.com/terms-conditions/
   contact:
@@ -22,7 +22,7 @@ paths:
       operationId: listSeasons
       tags:
       - Competitions
-      summary: List seasons.
+      summary: List seasons
       description: Returns available seasons identified by sid.
       parameters:
       - $ref: '#/components/parameters/token'
@@ -40,7 +40,7 @@ paths:
       operationId: listCompetitions
       tags:
       - Competitions
-      summary: List competitions.
+      summary: List competitions
       description: Returns cricket competitions (tournaments, tours, cups) identified by cid.
       parameters:
       - $ref: '#/components/parameters/token'
@@ -63,7 +63,7 @@ paths:
       operationId: getCompetition
       tags:
       - Competitions
-      summary: Get a competition.
+      summary: Get a competition
       description: Returns details for a single competition by cid.
       parameters:
       - $ref: '#/components/parameters/cid'
@@ -80,7 +80,7 @@ paths:
       operationId: listCompetitionMatches
       tags:
       - Competitions
-      summary: List matches for a competition.
+      summary: List matches for a competition
       parameters:
       - $ref: '#/components/parameters/cid'
       - $ref: '#/components/parameters/token'
@@ -96,7 +96,7 @@ paths:
       operationId: getCompetitionStandings
       tags:
       - Competitions
-      summary: Get standings for a competition.
+      summary: Get standings for a competition
       description: Returns the points table / standings for a competition by cid.
       parameters:
       - $ref: '#/components/parameters/cid'
@@ -109,35 +109,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
 components:
-  parameters:
-    perPage:
-      name: per_page
-      in: query
-      required: false
-      description: Number of items per page.
-      schema:
-        type: integer
-    cid:
-      name: cid
-      in: path
-      required: true
-      description: Competition identifier.
-      schema:
-        type: integer
-    token:
-      name: token
-      in: query
-      required: true
-      description: Short-lived access token from POST /auth.
-      schema:
-        type: string
-    paged:
-      name: paged
-      in: query
-      required: false
-      description: Page number for paginated results.
-      schema:
-        type: integer
   schemas:
     ApiResponse:
       type: object
@@ -151,6 +122,35 @@ components:
           type: object
           description: Endpoint-specific payload.
       additionalProperties: true
+  parameters:
+    cid:
+      name: cid
+      in: path
+      required: true
+      description: Competition identifier.
+      schema:
+        type: integer
+    paged:
+      name: paged
+      in: query
+      required: false
+      description: Page number for paginated results.
+      schema:
+        type: integer
+    token:
+      name: token
+      in: query
+      required: true
+      description: Short-lived access token from POST /auth.
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      required: false
+      description: Number of items per page.
+      schema:
+        type: integer
   securitySchemes:
     accessToken:
       type: apiKey

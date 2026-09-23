@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Entity Sport Cricket API V2 Authentication Matches API
+  title: Entity Sport Cricket API V2 Matches API
   description: Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.
   termsOfService: https://www.entitysport.com/terms-conditions/
   contact:
@@ -22,7 +22,7 @@ paths:
       operationId: listMatches
       tags:
       - Matches
-      summary: List matches.
+      summary: List matches
       description: Returns fixtures, live, and completed matches identified by mid.
       parameters:
       - $ref: '#/components/parameters/token'
@@ -45,7 +45,7 @@ paths:
       operationId: getMatchInfo
       tags:
       - Matches
-      summary: Get match info.
+      summary: Get match info
       description: Returns metadata and current state for a single match by mid.
       parameters:
       - $ref: '#/components/parameters/mid'
@@ -62,7 +62,7 @@ paths:
       operationId: getMatchLive
       tags:
       - Matches
-      summary: Get live ball-by-ball scoring.
+      summary: Get live ball-by-ball scoring
       description: Returns real-time ball-by-ball live scoring for a match by mid.
       parameters:
       - $ref: '#/components/parameters/mid'
@@ -75,35 +75,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
 components:
-  parameters:
-    perPage:
-      name: per_page
-      in: query
-      required: false
-      description: Number of items per page.
-      schema:
-        type: integer
-    mid:
-      name: mid
-      in: path
-      required: true
-      description: Match identifier.
-      schema:
-        type: integer
-    token:
-      name: token
-      in: query
-      required: true
-      description: Short-lived access token from POST /auth.
-      schema:
-        type: string
-    paged:
-      name: paged
-      in: query
-      required: false
-      description: Page number for paginated results.
-      schema:
-        type: integer
   schemas:
     ApiResponse:
       type: object
@@ -117,6 +88,35 @@ components:
           type: object
           description: Endpoint-specific payload.
       additionalProperties: true
+  parameters:
+    mid:
+      name: mid
+      in: path
+      required: true
+      description: Match identifier.
+      schema:
+        type: integer
+    paged:
+      name: paged
+      in: query
+      required: false
+      description: Page number for paginated results.
+      schema:
+        type: integer
+    token:
+      name: token
+      in: query
+      required: true
+      description: Short-lived access token from POST /auth.
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      required: false
+      description: Number of items per page.
+      schema:
+        type: integer
   securitySchemes:
     accessToken:
       type: apiKey

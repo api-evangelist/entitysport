@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Entity Sport Cricket API V2 Authentication Teams API
+  title: Entity Sport Cricket API V2 Teams API
   description: Token-authenticated REST API for cricket data from Entity Sport (Entity Digital Sports). Covers competitions and seasons, fixtures, results, live ball-by-ball scoring, scorecards, fantasy points, squads, player and team profiles, standings, and betting odds. Clients obtain a short-lived access token by POSTing access_key and secret_key to /auth, then pass the token as the `token` query parameter on every request.
   termsOfService: https://www.entitysport.com/terms-conditions/
   contact:
@@ -22,7 +22,7 @@ paths:
       operationId: getTeam
       tags:
       - Teams
-      summary: Get a team profile.
+      summary: Get a team profile
       description: Returns the profile and roster for a team by tid.
       parameters:
       - $ref: '#/components/parameters/tid'
@@ -35,6 +35,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
 components:
+  schemas:
+    ApiResponse:
+      type: object
+      description: Standard Entity Sport response envelope.
+      properties:
+        status:
+          type: string
+          description: Response status (e.g. ok).
+          example: ok
+        response:
+          type: object
+          description: Endpoint-specific payload.
+      additionalProperties: true
   parameters:
     token:
       name: token
@@ -50,19 +63,6 @@ components:
       description: Team identifier.
       schema:
         type: integer
-  schemas:
-    ApiResponse:
-      type: object
-      description: Standard Entity Sport response envelope.
-      properties:
-        status:
-          type: string
-          description: Response status (e.g. ok).
-          example: ok
-        response:
-          type: object
-          description: Endpoint-specific payload.
-      additionalProperties: true
   securitySchemes:
     accessToken:
       type: apiKey
