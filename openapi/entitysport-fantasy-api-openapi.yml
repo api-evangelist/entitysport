@@ -66,13 +66,6 @@ components:
           description: Endpoint-specific payload.
       additionalProperties: true
   parameters:
-    mid:
-      name: mid
-      in: path
-      required: true
-      description: Match identifier.
-      schema:
-        type: integer
     token:
       name: token
       in: query
@@ -80,6 +73,13 @@ components:
       description: Short-lived access token from POST /auth.
       schema:
         type: string
+    mid:
+      name: mid
+      in: path
+      required: true
+      description: Match identifier.
+      schema:
+        type: integer
   securitySchemes:
     accessToken:
       type: apiKey
