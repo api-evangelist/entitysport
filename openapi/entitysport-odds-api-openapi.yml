@@ -35,19 +35,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ApiResponse'
 components:
-  schemas:
-    ApiResponse:
-      type: object
-      description: Standard Entity Sport response envelope.
-      properties:
-        status:
-          type: string
-          description: Response status (e.g. ok).
-          example: ok
-        response:
-          type: object
-          description: Endpoint-specific payload.
-      additionalProperties: true
   parameters:
     token:
       name: token
@@ -63,6 +50,19 @@ components:
       description: Match identifier.
       schema:
         type: integer
+  schemas:
+    ApiResponse:
+      type: object
+      description: Standard Entity Sport response envelope.
+      properties:
+        status:
+          type: string
+          description: Response status (e.g. ok).
+          example: ok
+        response:
+          type: object
+          description: Endpoint-specific payload.
+      additionalProperties: true
   securitySchemes:
     accessToken:
       type: apiKey

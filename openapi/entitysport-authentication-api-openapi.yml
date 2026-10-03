@@ -42,6 +42,18 @@ paths:
           description: Invalid credentials.
 components:
   schemas:
+    AuthRequest:
+      type: object
+      required:
+      - access_key
+      - secret_key
+      properties:
+        access_key:
+          type: string
+          description: Account access key.
+        secret_key:
+          type: string
+          description: Account secret key.
     AuthResponse:
       type: object
       properties:
@@ -57,18 +69,6 @@ components:
             expires:
               type: integer
               description: Token expiry as a Unix timestamp.
-    AuthRequest:
-      type: object
-      required:
-      - access_key
-      - secret_key
-      properties:
-        access_key:
-          type: string
-          description: Account access key.
-        secret_key:
-          type: string
-          description: Account secret key.
   securitySchemes:
     accessToken:
       type: apiKey

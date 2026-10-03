@@ -117,13 +117,6 @@ components:
       description: Number of items per page.
       schema:
         type: integer
-    token:
-      name: token
-      in: query
-      required: true
-      description: Short-lived access token from POST /auth.
-      schema:
-        type: string
     paged:
       name: paged
       in: query
@@ -138,6 +131,13 @@ components:
       description: Competition identifier.
       schema:
         type: integer
+    token:
+      name: token
+      in: query
+      required: true
+      description: Short-lived access token from POST /auth.
+      schema:
+        type: string
   schemas:
     ApiResponse:
       type: object
