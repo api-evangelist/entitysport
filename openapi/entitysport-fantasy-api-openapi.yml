@@ -53,13 +53,6 @@ paths:
                 $ref: '#/components/schemas/ApiResponse'
 components:
   parameters:
-    token:
-      name: token
-      in: query
-      required: true
-      description: Short-lived access token from POST /auth.
-      schema:
-        type: string
     mid:
       name: mid
       in: path
@@ -67,6 +60,13 @@ components:
       description: Match identifier.
       schema:
         type: integer
+    token:
+      name: token
+      in: query
+      required: true
+      description: Short-lived access token from POST /auth.
+      schema:
+        type: string
   schemas:
     ApiResponse:
       type: object

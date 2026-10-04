@@ -117,20 +117,6 @@ components:
       description: Number of items per page.
       schema:
         type: integer
-    paged:
-      name: paged
-      in: query
-      required: false
-      description: Page number for paginated results.
-      schema:
-        type: integer
-    cid:
-      name: cid
-      in: path
-      required: true
-      description: Competition identifier.
-      schema:
-        type: integer
     token:
       name: token
       in: query
@@ -138,6 +124,20 @@ components:
       description: Short-lived access token from POST /auth.
       schema:
         type: string
+    cid:
+      name: cid
+      in: path
+      required: true
+      description: Competition identifier.
+      schema:
+        type: integer
+    paged:
+      name: paged
+      in: query
+      required: false
+      description: Page number for paginated results.
+      schema:
+        type: integer
   schemas:
     ApiResponse:
       type: object
