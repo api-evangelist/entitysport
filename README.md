@@ -1,4 +1,4 @@
-# Entity Sport (entitysport)
+# Entity Sport
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,155 +66,130 @@
 
 Entity Sport (Entity Digital Sports) provides real-time sports data APIs, with cricket as its flagship product. The Cricket API V2 delivers competitions and seasons, fixtures and results, ball-by-ball live scoring, detailed scorecards, fantasy points, player and team profiles, standings, and betting odds over a token-authenticated REST interface.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/entitysport/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/entitysport/refs/heads/main/apis.yml)
+**Areas:** Sports Data · Cricket · Live Scores · Fantasy · Odds
 
-## Tags
+## Entity Sport on APIs.io
 
-- Sports Data
-- Cricket
-- Live Scores
-- Fantasy
-- Odds
+Everything profiled for Entity Sport is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/entitysport/](https://apis.io/providers/entitysport/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (8)
 
-- **Created:** 2026-06-25
-- **Modified:** 2026-06-25
+- [Entity Sport Authentication API](https://apis.io/apis/entitysport/entitysport-authentication-api/) — Access token generation.
+- [Entity Sport Competitions API](https://apis.io/apis/entitysport/entitysport-competitions-api/) — Competitions, seasons, and standings.
+- [Entity Sport Fantasy API](https://apis.io/apis/entitysport/entitysport-fantasy-api/) — Fantasy points and squads.
+- [Entity Sport Matches API](https://apis.io/apis/entitysport/entitysport-matches-api/) — Match listing, info, and live scoring.
+- [Entity Sport Odds API](https://apis.io/apis/entitysport/entitysport-odds-api/) — Cricket Exchange live odds.
+- [Entity Sport Players API](https://apis.io/apis/entitysport/entitysport-players-api/) — Player profiles and statistics.
+- [Entity Sport Scorecards API](https://apis.io/apis/entitysport/entitysport-scorecards-api/) — Match scorecards and innings detail.
+- [Entity Sport Teams API](https://apis.io/apis/entitysport/entitysport-teams-api/) — Team profiles and rosters.
 
-## APIs
+### Published properties
 
-### Entity Sport Competitions API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Lists cricket competitions (tournaments, tours, cups) and seasons, and exposes per-competition matches and standings/points tables, keyed by the competition identifier cid and season identifier sid.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.doc.entitysport.com/cricket-api-v2](https://www.doc.entitysport.com/cricket-api-v2)
-- **Base URL:** `https://restapi.entitysport.com/v2`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Entitysport Agentic Access](https://apis.io/agentic-access/entitysport/entitysport-agentic-access/)
 
-- Competitions
-- Seasons
-- Standings
+#### Collections (9)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://www.doc.entitysport.com/cricket-api-v2)
-- [API Reference](https://www.doc.entitysport.com/cricket-api-v2)
-- [OpenAPI](openapi/entitysport-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/entitysport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/entitysport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Entity Sport Cricket API V2](https://apis.io/collections/entitysport/open-entitysport/)
+- [Entity Sport Cricket API V2 Authentication API](https://apis.io/collections/entitysport/open-entitysport-authentication-api/)
+- [Entity Sport Cricket API V2 Authentication Competitions API](https://apis.io/collections/entitysport/open-entitysport-competitions-api/)
+- [Entity Sport Cricket API V2 Authentication Fantasy API](https://apis.io/collections/entitysport/open-entitysport-fantasy-api/)
+- [Entity Sport Cricket API V2 Authentication Matches API](https://apis.io/collections/entitysport/open-entitysport-matches-api/)
+- [Entity Sport Cricket API V2 Authentication Odds API](https://apis.io/collections/entitysport/open-entitysport-odds-api/)
+- [Entity Sport Cricket API V2 Authentication Players API](https://apis.io/collections/entitysport/open-entitysport-players-api/)
+- [Entity Sport Cricket API V2 Authentication Scorecards API](https://apis.io/collections/entitysport/open-entitysport-scorecards-api/)
+- [Entity Sport Cricket API V2 Authentication Teams API](https://apis.io/collections/entitysport/open-entitysport-teams-api/)
 
-### Entity Sport Matches & Live Scoring API
+#### Security (2)
 
-Lists fixtures, live, and completed matches and returns per-match info plus ball-by-ball live scoring keyed by the match identifier mid.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://www.doc.entitysport.com/cricket-api-v2](https://www.doc.entitysport.com/cricket-api-v2)
-- **Base URL:** `https://restapi.entitysport.com/v2`
+- [Entitysport Authentication](https://apis.io/security/entitysport/entitysport-authentication/)
+- [Entitysport Domain Security](https://apis.io/security/entitysport/entitysport-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Matches
-- Live Scoring
-- Ball by Ball
+Published plans, tiers and prices.
 
-#### Properties
+- [Entitysport Plans Pricing](https://apis.io/plans/entitysport/entitysport-plans-pricing/)
 
-- [Documentation](https://www.doc.entitysport.com/cricket-api-v2)
-- [OpenAPI](openapi/entitysport-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/entitysport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/entitysport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Entity Sport Scorecards API
+Published request limits.
 
-Returns the full match scorecard with batting, bowling, and innings detail for a given match identifier mid.
+- [Entitysport Rate Limits](https://apis.io/rate-limits/entitysport/entitysport-rate-limits/)
 
-- **Human URL:** [https://www.doc.entitysport.com/cricket-api-v2](https://www.doc.entitysport.com/cricket-api-v2)
-- **Base URL:** `https://restapi.entitysport.com/v2`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Scorecards
-- Innings
-- Statistics
+- [Entitysport Finops](https://apis.io/finops/entitysport/entitysport-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://www.doc.entitysport.com/cricket-api-v2)
-- [OpenAPI](openapi/entitysport-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/entitysport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/entitysport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Entity Sport Fantasy Points API
-
-Serves Entity Sport fantasy cricket points for a match plus the pre-match fantasy squad/roster with player roles and fantasy credits, keyed by the match identifier mid.
-
-- **Human URL:** [https://www.doc.entitysport.com/cricket-api-v2](https://www.doc.entitysport.com/cricket-api-v2)
-- **Base URL:** `https://restapi.entitysport.com/v2`
-
-#### Tags
-
-- Fantasy
-- Points
-- Roster
-
-#### Properties
-
-- [Documentation](https://www.doc.entitysport.com/cricket-api-v2)
-- [OpenAPI](openapi/entitysport-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/entitysport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/entitysport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Entity Sport Players & Teams API
-
-Returns player profiles and career statistics keyed by player identifier pid, and team profiles and rosters keyed by team identifier tid.
-
-- **Human URL:** [https://www.doc.entitysport.com/cricket-api-v2](https://www.doc.entitysport.com/cricket-api-v2)
-- **Base URL:** `https://restapi.entitysport.com/v2`
-
-#### Tags
-
-- Players
-- Teams
-- Profiles
-
-#### Properties
-
-- [Documentation](https://www.doc.entitysport.com/cricket-api-v2)
-- [OpenAPI](openapi/entitysport-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/entitysport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/entitysport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Entity Sport Odds API
-
-Exposes live cricket betting odds and exchange data per match via the Cricket Exchange product, keyed by the match identifier mid.
-
-- **Human URL:** [https://www.doc.entitysport.com/cricket-exchange](https://www.doc.entitysport.com/cricket-exchange)
-- **Base URL:** `https://restapi.entitysport.com/v2`
-
-#### Tags
-
-- Odds
-- Cricket Exchange
-- Betting
-
-#### Properties
-
-- [Documentation](https://www.doc.entitysport.com/cricket-exchange)
-- [OpenAPI](openapi/entitysport-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/entitysport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/entitysport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/entitysport)
-- [LinkedIn](https://www.linkedin.com/company/entitysport)
 - [Website](https://www.entitysport.com)
 - [Documentation](https://www.doc.entitysport.com)
-- [Plans](plans/entitysport-plans-pricing.yml)
-- [Rate Limits](rate-limits/entitysport-rate-limits.yml)
-- [Fin Ops](finops/entitysport-finops.yml)
+- [Blog](https://www.entitysport.com/feed/)
+- [GitHub](https://github.com/entitysport)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 22.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/entitysport/](https://apis.io/providers/entitysport/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Entity Sport: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/entitysport/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
